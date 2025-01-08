@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
+    "name": "TM1638PInputX",
+    "description": "Extended Input Library for use with the TM1638Plus Library and TM1638 Hardware with button inputs. Adds Button Debounce, Buttons Pressed, Just Pressed, Just Released and Changed functions as Callback Events for Pressed and Released",
+    "authors": [
+        {
+            "name": "Joe Herbert",
+            "email": "djneonc@gmail.com"
+        }
+    ],
+    "dependencies":[
+        {
+        "name": "TM1638Plus",
+        "version": "^2.0.1"
+        }
+    ],
+    "version": "0.1.0",
+    "platforms":["arduino"],
+    "headers":["TM1638PInputX.h"]
+}

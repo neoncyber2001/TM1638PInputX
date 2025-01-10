@@ -13,7 +13,7 @@ TMInputX inputX(&tm);
 //typedef void (*BtnReleasedCB)(uint8_t);
 
 void onChanged(uint8_t pressed, uint8_t released){
-  uint16_t changesgtates = pressed<<8 | released;
+  uint16_t changesgtates = (pressed<<8) | released;
   tm.setLEDs(changesgtates);
 };
 
@@ -51,7 +51,12 @@ void setup() {
   inputX.setReleasedCB(onRelease,5);
   inputX.setReleasedCB(onRelease,6);
   inputX.setReleasedCB(onRelease,7);
-  tm.reset();
+  tm.displayText("TM1638");
+  delay(1000);
+  tm.displayText("InputX");
+  delay(1000);
+  tm.displayText("EVENTS");
+  delay(1000);
   uint8_t ledB = 0x01;
   uint32_t tt=millis()+1000;
   while (millis()<tt) {
@@ -60,7 +65,10 @@ void setup() {
     else{
       ledB=ledB<<1;
     }
+    tm.setLEDs(ledB);
+    delay(10);
   }
+  tm.reset();
 }
 
 uint8_t led = 1;
@@ -72,4 +80,7 @@ void loop() {
     tmr=millis()+250;
   }
 }
+
+
+
 
